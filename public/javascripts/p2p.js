@@ -12,7 +12,7 @@ async function uploadFile(event) {
     formData.append("file", fileInput.files[0]);
 
     try {
-        const response = await fetch("/upload", {
+        const response = await fetch("/file/upload", {
             method: "POST",
             body: formData
         });
@@ -27,7 +27,7 @@ async function uploadFile(event) {
 // Fonction pour télécharger un fichier
 async function downloadFile() {
     try {
-        const response = await fetch("/download");
+        const response = await fetch("/file/download");
         if (!response.ok) throw new Error("Erreur lors du téléchargement");
 
         const blob = await response.blob();
