@@ -3,7 +3,6 @@ const router = express.Router();
 const multer = require("multer");
 const path = require("path");
 
-// Configurer Multer pour stocker les fichiers
 // Configurer Multer pour stocker les fichiers avec leurs extensions d'origine
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
