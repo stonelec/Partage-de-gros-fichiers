@@ -35,7 +35,7 @@ document.getElementById("shareBtn").addEventListener("click", function () {
     // Seed the file(s) using WebTorrent
     let torrent = client.seed(files, (t) => {
         const magnetURI = t.magnetURI;
-        const uniqueURL = `https://p2pfileshare.com/receiver?magnet=${encodeURIComponent(
+        const uniqueURL = `https://localhost:3000/receiver?magnet=${encodeURIComponent(
             magnetURI
         )}`;
 
