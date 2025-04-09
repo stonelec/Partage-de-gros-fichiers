@@ -26,7 +26,7 @@ router.post("/upload", upload.single("file"), (req, res) => {
 });
 
 router.get("/download", (req, res) => {
-    const fileName = "1743692413857-16283106.png"; // Utilise le nom réel du fichier
+    const fileName = "1743692709600-659643907.png"; // Utilise le nom réel du fichier
     const filePath = path.join(__dirname, "../uploads", fileName);  // Ajoute l'extension au fichier
     res.download(filePath);
 });
