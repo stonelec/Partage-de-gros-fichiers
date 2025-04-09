@@ -1,8 +1,23 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+:root {
+    --white-color: #f0f0f0;
+    --grey-color: #8d99a5;
+    --blue-color: #6bbedb;
+    --black-color: #2b2d42;
 }
 
-a {
-  color: #00B7FF;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--white-color);
+    color: var(--black-color);
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 }
