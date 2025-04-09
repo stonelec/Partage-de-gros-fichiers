@@ -3,9 +3,31 @@
     <head>
         <title><%= title %></title>
         <link rel="stylesheet" href="/stylesheets/style.css" />
+        <link rel="stylesheet" href="/stylesheets/file.css" />
     </head>
     <body>
-        <h1><%= title %></h1>
-        <p>Welcome to <%= title %></p>
+        <div class="container">
+            <div class="card">
+                <h2>Fichier</h2>
+                <p class="filename">how-to-size-a-.webp</p>
+                <p class="filesize">0.10mb</p>
+                <button>Téléchargement</button>
+            </div>
+
+            <div class="download-section">
+                <p class="title">
+                    Vous pouvez maintenant <br /><strong
+                        >télécharger le fichier</strong
+                    >
+                </p>
+                <div class="progress">
+                    <div class="progress-bar"></div>
+                    <span class="progress-text">40%</span>
+                </div>
+                <p class="warning">
+                    ⚠️ <span>Fermer cette page annule le téléchargement</span>
+                </p>
+            </div>
+        </div>
     </body>
 </html>
