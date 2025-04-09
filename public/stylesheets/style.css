@@ -14,10 +14,10 @@
 }
 
 :root {
-    --white-color: #f0f0f0;
+    --white-color: white;
     --grey-color: #8d99a5;
     --blue-color: #6bbedb;
-    --black-color: #2b2d42;
+    --black-color: #4A889D;
 }
 
 * {
@@ -34,5 +34,59 @@ html {
 
 body {
     background: var(--white-color);
-    color: var(--black-color);
+}
+
+
+
+/*all page*/
+
+.informations {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px;
+}
+
+.infos .header {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    gap : 50px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.infos .header img {
+    width: 100px;
+}
+
+.infos h1 {
+    color: #68a3c2;
+    font-size: 32px;
+    margin: 0;
+    font-weight: 10000;
+}
+
+.infos h2 {
+    font-size: 25px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.infosp {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.infos ul {
+    margin-top: 0;
+    padding-left: 20px;
+}
+
+.infos ul li {
+    margin-bottom: 5px;
+}
+
+.infos .highlight {
+    font-weight: bold;
 }
