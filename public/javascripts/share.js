@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const url = "https://hey.ca";
 
-    const card = document.querySelector(".card");
+    const card = document.querySelector(".qrcode");
     const qrContainer = document.createElement("div");
     card.appendChild(qrContainer);
 
@@ -23,6 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
         downloadLink.textContent = url;
     }
 
+    //copy url
+    document.getElementById('copy').onclick = function () {
+        const icon = document.getElementById('copy'); // récupération de l'élément
+        const message = "Voici le lien de téléchargement du fichier via l'application Partage de Gros Fichier qui permet un partage Gratuit et sans aucunes limitations :\nhttps://hey.ca";
+
+        icon.setAttribute('icon', 'fluent:document-copy-24-filled'); // modification de l'icône
+        navigator.clipboard.writeText(message); // copie dans le presse-papiers
+    };
+
+
+    //share on social media
     document.getElementById('whatsapp').onclick = function () {
         console.log('whatsapp');
         const message = "Voici le lien de téléchargement du fichier via l'application Partage de Gros Fichier qui permet un partage Gratuit et sans aucunes limitations : ";
@@ -69,5 +80,18 @@ document.addEventListener("DOMContentLoaded", () => {
         navigator.clipboard.writeText(message);
         window.open(discordUrl, "_blank");
     };
+
+
+    const dropArea = document.getElementById('drop-area');
+    const fileInput = document.getElementById('file-input');
+
+    dropArea.addEventListener('click', () => {
+        fileInput.click(); // simule un clic sur le vrai input file
+    });
+
+    fileInput.addEventListener('change', () => {
+        const files = fileInput.files;
+        //console.log("Fichiers sélectionnés :", files);
+    });
 
 });

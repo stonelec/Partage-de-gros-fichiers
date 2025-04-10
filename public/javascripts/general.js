@@ -24,7 +24,14 @@ function afficherSection(section) {
         }
     });
 }
-
+function scrollDown() {
+    if (window.scrollY === 0) {
+        window.scrollBy({
+            top: 550,
+            behavior: "smooth"
+        });
+    }
+}
 // Ajouter des event listeners aux boutons de la navbar
 document.addEventListener("DOMContentLoaded", function() {
     const buttons = document.querySelectorAll('.buttons-container button');
@@ -34,10 +41,13 @@ document.addEventListener("DOMContentLoaded", function() {
             // Vérifier quel bouton a été cliqué et afficher la section correspondante
             if (button.id === 'btn-informations') {
                 afficherSection('informations');
+                scrollDown();
             } else if (button.id === 'btn-security') {
                 afficherSection('security');
+                scrollDown();
             } else if (button.id === 'btn-projet') {
                 afficherSection('projet');
+                scrollDown();
             }
         });
     });

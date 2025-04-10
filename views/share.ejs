@@ -9,6 +9,7 @@
       <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
       <script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
       <script type='text/javascript' src='/javascripts/share.js'></script>
+      <script type='text/javascript' src='/javascripts/p2p.js' defer></script>
   </head>
   <body>
     <header>
@@ -16,14 +17,66 @@
     </header>
     <div class="elipse-bottom"></div>
     <main>
-        <div class="container">
-            <div class="card" id="qrcode">
+        <!--upload-->
+        <div class="container upload" id="upload" style="display: none">
+            <div class="card">
+                <div class="card-point" id="drop-area">
+                    <input type="file" id="file-input" style="display: none;" multiple>
+                    <div class="uplaod-infos">
+                        <iconify-icon icon="fluent:add-circle-48-regular" width="80" height="80"></iconify-icon>
+                        <p class="description">Déposer vos fichier(s) pour démarrer le partage</p>
+                    </div>
+                </div>
+            </div>
+            <div class="download-section">
+                <div class="download-header">
+                    <p class="title">Partager vos fichier directement <br> votre navigateur</p>
+                </div>
+                <div id="download-content">
+                    <p>Transférer des fichiers, images, vidéos, musiques, ... <br>directement
+                        depuis votre appareil vers un autre <br>sans passsé par d’intermédiare
+                        en ligne</p>
+                    <div class="key-container">
+                        <div class="key-duo">
+                            <div class="key">
+                                <iconify-icon icon="fluent:channel-share-24-filled" width="24" height="24"></iconify-icon>
+                                <p>Peer to peer</p>
+                            </div>
+                            <div class="key">
+                                <iconify-icon icon="fluent:slide-size-24-filled" width="24" height="24"></iconify-icon>
+                                <p>Pas de limite de taille</p>
+                            </div>
+
+                        </div>
+                        <div class="key-duo">
+                            <div class="key">
+                                <iconify-icon icon="fluent:flash-24-filled" width="24" height="24"></iconify-icon>
+                                <p>Très rapide</p>
+                            </div>
+                            <div class="key">
+                                <iconify-icon icon="fluent:shield-lock-24-filled" width="24" height="24"></iconify-icon>
+                                <p>Crypté de bout en bout</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--share-->
+        <div class="container share" id="share" style="display: none;">
+            <div class="card qrcode" id="qrcode">
                 <!--emplacement qrcode-->
             </div>
             <div class="download-section">
                 <div class="download-header">
-                    <p class="title">Vous pouvez maintenant choisir <br>votre méthode de partage</p>
-                    <a href="#" class="download-link"></a>
+                    <div class="top-upload">
+                        <p class="title">Vous pouvez maintenant choisir <br>votre méthode de partage</p>
+                        <iconify-icon icon="fluent:dismiss-24-filled" width="35" height="35" id="close"></iconify-icon>
+                    </div>
+                    <div class="download-options">
+                        <a href="#" class="download-link"></a>
+                        <iconify-icon icon="fluent:copy-24-filled" id="copy" class="copy" width="30" height="30"></iconify-icon>
+                    </div>
                     <div class="app">
                         <iconify-icon icon="bxl:facebook-circle" id="facebook" width="40" height="40" class="app-logo"></iconify-icon>
                         <iconify-icon icon="bxl:instagram" id="instagram" width="40" height="40" class="app-logo"></iconify-icon>

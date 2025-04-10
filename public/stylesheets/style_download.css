@@ -115,16 +115,21 @@ button:active {
     align-items: center;
     gap: 5px;
 }
-
-.buttons-container {
-    position: relative;
-    top: 60px;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 40px;
+.download-section .warning  iconify-icon{
+    color: var(--blue-color);
 }
+.download-content{
+    margin-top: -20px;
+}
+    .buttons-container {
+        position: relative;
+        top: 60px;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 40px;
+    }
 
 @media (max-width: 800px) {
     .container{

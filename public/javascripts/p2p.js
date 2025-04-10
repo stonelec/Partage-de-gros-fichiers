@@ -2,7 +2,7 @@
 async function uploadFile(event) {
     event.preventDefault(); // Empêche le rechargement de la page
 
-    const fileInput = document.getElementById("fileInput");
+    const fileInput = document.getElementById("file-input");
     if (fileInput.files.length === 0) {
         alert("Veuillez sélectionner un fichier.");
         return;
@@ -43,12 +43,20 @@ async function downloadFile() {
         console.error("Erreur de téléchargement :", error);
     }
 }
+document.getElementById('upload').style.display = 'flex';
 
-// Ajout des écouteurs d'événements
-document.addEventListener("DOMContentLoaded", function () {
-    const uploadForm = document.getElementById("uploadForm");
-    const downloadButton = document.getElementById("downloadButton");
+document.getElementById('file-input').addEventListener('change', function () {
+    console.log(document.getElementById('file-input').value);
+    document.getElementById('share').style.display = 'flex';
+    document.getElementById('upload').style.display = 'none';
+    uploadFile();
 
-    if (uploadForm) uploadForm.addEventListener("submit", uploadFile);
-    if (downloadButton) downloadButton.addEventListener("click", downloadFile);
+});
+
+document.getElementById('close').addEventListener('click', function () {
+    document.getElementById('share').style.display = 'none';
+    document.getElementById('upload').style.display = 'flex';
+
+
+
 });
