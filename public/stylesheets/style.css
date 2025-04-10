@@ -15,9 +15,9 @@
 
 :root {
     --white-color: white;
-    --grey-color: #8d99a5;
-    --blue-color: #0CC0DF;
-    --black-color: #087f93;
+    --grey-color: #939ca5;
+    --blue-color: #6abbd8;
+    --black-color: #4c84a1;
 }
 
 * {
@@ -42,29 +42,40 @@ header {
     display: flex;
     justify-content: center; /* Centre le contenu horizontalement */
     background-color: white;
-    margin-top: -10px;
+    margin-top: -70px;
 }
 header img{
     position: relative;
-    top: 30px;
-    z-index: 1;
+    top: 85px;
+    z-index: 2;
 }
 .elipse-bottom{
-    height: 50px;
-    clip-path: ellipse(50% 100% at top);
+    height: 100px;
+    /*clip-path: ellipse(50% 100% at top);*/
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
     background-color: white;
     width: 102%;
     position: relative;
     left: -1%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 5px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    clip-path: inset(0px -10px -10px -10px);
+    z-index: 1;
 
 }
+
 .elipse-top{
-    height: 50px;
-    clip-path: ellipse(50% 100% at top);
+    height: 100px;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
     background-color: var(--grey-color);
     width: 102%;
     position: relative;
     left: -1%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    clip-path: inset(0px -10px -10px -10px);
+    z-index: 1;
+
 }
 .elipse-top-fond{
     background-color: white;
@@ -74,13 +85,12 @@ header img{
 }
 
 main {
-    padding: 10px;
-    height: 500px;
     background-color: var(--grey-color);
 }
 
 .info {
-    padding: 10px;
+    padding: 35px 15% 0 15%;
+
     background-color: white;
 }
 
@@ -97,9 +107,8 @@ footer {
 /*all page*/
 
 .infos {
-    max-width: 800px;
+    max-width: 700px;
     margin: auto;
-    padding: 20px;
 }
 
 .infos .header {
@@ -147,19 +156,14 @@ footer {
     font-weight: bold;
     margin-bottom: 10px;
 }
+.infos .img-infos{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 .infos .mail{
     color: var(--blue-color);
     margin-top: 10px;
-}
-.infos .logo-uqac{
-    width: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 15px;
-}
-.infos .logo-uqac img{
-    width: 200px;
-    justify-self: center;
 }
 .infos .team{
     justify-content: center;

@@ -1,0 +1,125 @@
+body {
+    background-color: var(--grey-color);
+}
+
+.container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-color: var(--grey-color);
+    color: white;
+    align-items: center;
+    gap: 150px;
+    font-size: 18px;
+    position: relative;
+    top: 50px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;;
+    height: 300px;
+    aspect-ratio: 1/1;
+    text-align: left;
+}
+
+.card h2 {
+    color: var(--blue-color);
+    margin-bottom: 10px;
+}
+
+.card .filename,
+.card .filesize {
+    color: var(--blue-color);
+    margin: 0;
+    font-size: 15px;
+}
+
+.active{
+    background-color: var(--blue-color);
+    color: white;
+}
+
+button {
+    color: black;
+    padding: 5px 20px;
+    font-size: 25px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 174px;
+    background-color: var(--white-color);
+}
+
+.card button {
+    margin-top: auto;
+    align-self: center;
+    width: auto;
+}
+
+button:hover {
+    background-color: var(--black-color);
+    color: white;
+}
+button:active {
+    color: white;
+    background-color: var(--blue-color);
+}
+.download-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 250px;
+}
+
+.download-section .title {
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.download-section .progress {
+    margin-top: 20px;
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    height: 10px;
+}
+
+.download-section .progress-bar {
+    width: 40%;
+    height: 100%;
+    background-color: var(--blue-color);
+}
+
+.download-section .progress-text {
+    position: absolute;
+    right: -40px;
+    top: -5px;
+    color: white;
+}
+
+.download-section .warning {
+    margin-top: 15px;
+    color: var(--blue-color);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.buttons-container {
+    position: relative;
+    top: 60px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+}
