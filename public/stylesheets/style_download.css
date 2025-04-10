@@ -18,12 +18,14 @@ body {
 .card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     padding: 30px;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;;
     height: 300px;
+    width: 300px;
     aspect-ratio: 1/1;
     text-align: left;
 }
@@ -79,7 +81,7 @@ button:active {
 
 .download-section .title {
     font-weight: bold;
-    line-height: 1.5;
+    font-size: 25px;
 }
 
 .download-section .progress {
@@ -107,7 +109,7 @@ button:active {
 
 .download-section .warning {
     margin-top: 15px;
-    color: var(--blue-color);
+    color: white;
     font-weight: bold;
     display: flex;
     align-items: center;

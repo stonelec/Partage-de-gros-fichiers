@@ -1,0 +1,11 @@
+.app {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.app .app-logo:hover{
+    color: var(--blue-color);
+}
+.app .app-logo:active{
+    color: black;
+}

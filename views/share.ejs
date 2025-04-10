@@ -5,7 +5,10 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/style_download.css' />
     <link rel='stylesheet' href='/stylesheets/style_share.css' />
-      <script type='text/javascript' src='/javascripts/general.js'></script>
+    <script type='text/javascript' src='/javascripts/general.js'></script>
+      <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+      <script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+      <script type='text/javascript' src='/javascripts/share.js'></script>
   </head>
   <body>
     <header>
@@ -14,26 +17,29 @@
     <div class="elipse-bottom"></div>
     <main>
         <div class="container">
-            <div class="card">
-                <h2>Fichier</h2>
-                <p class="filename">how-to-sidddddddddddddddze-a-.webp</p>
-                <p class="filesize">0.10mb</p>
-                <button class="button-first">Téléchargement</button>
+            <div class="card" id="qrcode">
+                <!--emplacement qrcode-->
             </div>
             <div class="download-section">
                 <div class="download-header">
-                    <p class="title">
-                        Vous pouvez maintenant <br /><strong>télécharger le fichier</strong>
-                    </p>
+                    <p class="title">Vous pouvez maintenant choisir <br>votre méthode de partag</p>
+                    <a href="#" class="download-link"></a>
+                    <div class="app">
+                        <iconify-icon icon="bxl:facebook-circle" id="facebook" width="40" height="40" class="app-logo"></iconify-icon>
+                        <iconify-icon icon="bxl:instagram" id="instagram" width="40" height="40" class="app-logo"></iconify-icon>
+                        <iconify-icon icon="bxl:whatsapp" id="whatsapp" width="40" height="40" class="app-logo"></iconify-icon>
+                        <iconify-icon icon="bxl:twitter" id="twitter" width="40" height="40" class="app-logo"></iconify-icon>
+                        <iconify-icon icon="bxl:gmail" id="gmail" width="40" height="40" class="app-logo"></iconify-icon>
+                    </div>
                 </div>
                 <div id="download-content">
-                    <p class="title"><span>Téléchargement</span></p>
+                    <p class="title">Envoie</p>
                     <div class="progress">
                         <div class="progress-bar"></div>
                         <span class="progress-text">40%</span>
                     </div>
                     <p class="warning">
-                        ⚠️
+                        <iconify-icon icon="fluent:warning-24-filled" width="30" height="30"></iconify-icon>
                         <span>Fermer cette page annule le téléchargement</span>
                     </p>
                 </div>
