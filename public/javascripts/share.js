@@ -2,18 +2,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const url = "https://hey.ca";
 
     const card = document.querySelector(".card");
-    if (card) {
-        // Créer un conteneur pour le QR
-        const qrContainer = document.createElement("div");
-        card.appendChild(qrContainer);
+    const qrContainer = document.createElement("div");
+    card.appendChild(qrContainer);
 
-        new QRCode(qrContainer, {
-            text: url,
-            width: 250,
-            height: 250,
-            correctLevel: QRCode.CorrectLevel.H
-        });
-    }
+    new QRCode(qrContainer, {
+        text: url,
+        width: 250,
+        height: 250,
+        correctLevel: QRCode.CorrectLevel.H
+    });
+    const image = document.querySelector("#qrcode img");
+
+    image.setAttribute("draggable", "false");
+
 
     // Met à jour le lien de téléchargement
     const downloadLink = document.querySelector(".download-link");
@@ -58,6 +59,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const body = "Voici le lien de téléchargement du fichier via l'application Partage de Gros Fichier qui permet un partage Gratuit et sans aucunes limitations :\n\nhttps://hey.ca";
         const mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         window.location.href = mailtoLink;
+    };
+
+    document.getElementById('discord').onclick = function () {
+        const message = "Voici le lien de téléchargement du fichier via l'application Partage de Gros Fichier qui permet un partage Gratuit et sans aucunes limitations :\nhttps://hey.ca";
+
+        const discordUrl = `https://discordapp.com/channels/@me/123456789012345678?message=${encodeURIComponent(message)}`;
+        alert("Le message à été copié dans le presse-papier");
+        navigator.clipboard.writeText(message);
+        window.open(discordUrl, "_blank");
     };
 
 });

@@ -1,3 +1,10 @@
+.download-link{
+    text-decoration: none;
+    color: var(--black-color);
+    padding: 200px 0;
+}
+
+
 .app {
     display: flex;
     flex-direction: row;
@@ -7,5 +14,6 @@
     color: var(--blue-color);
 }
 .app .app-logo:active{
-    color: black;
+    color: var(--black-color);
 }
+

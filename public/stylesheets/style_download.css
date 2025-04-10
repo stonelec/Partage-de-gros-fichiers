@@ -125,3 +125,19 @@ button:active {
     gap: 10px;
     margin-top: 40px;
 }
+
+@media (max-width: 800px) {
+    .container{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .card {
+        height: 200px;
+        width: 200px;
+    }
+    .card img{
+        width: 150px;
+        height: 150px;
+    };
+
+}
