@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Partage de gros fichier</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+
+</head>
+<body>
+<!--Informations-->
+<div class="informations infos">
+  <div class="header">
+    <h1>Partage de <br> gros fichier</h1>
+    <img src="images/logo-gros-fichier.png" alt="Icône de partage">
+  </div>
+
+  <h2>Pourquoi ce projet ?</h2>
+  <p>Aujourd’hui, partager de gros fichiers (vidéos, archives, projets, etc.) peut vite devenir un casse-tête.</p>
+  <br>
+  <p>Les services classiques (WeTransfer, Google Drive, Dropbox…) imposent souvent des limites de taille, une connexion à un compte, ou un stockage temporaire sur des serveurs tiers. Ces étapes rendent le partage lent, compliqué et parfois peu sécurisé.</p>
+
+  <h2>Notre solution</h2>
+  <p>Nous avons voulu proposer une alternative simple, rapide et efficace : un site permettant de partager des fichiers directement entre deux utilisateurs, sans passer par un serveur centralisé.</p>
+  <br>
+  <p>Grâce au peer-to-peer (P2P) et à la technologie WebTorrent, les fichiers sont transmis directement de l’émetteur au récepteur, via leur navigateur. Cela évite les limites de taille imposées par les plateformes traditionnelles, tout en assurant un envoi plus fluide et potentiellement plus rapide.</p>
+
+  <h2>C’est quoi le Peer-to-Peer (P2P) ?</h2>
+  <p>Le peer-to-peer, ou P2P, est une méthode de communication où chaque utilisateur (appelé un pair) peut envoyer et recevoir des données directement d’un autre utilisateur.</p>
+  <p>Il n’y a pas de serveur central : tous les ordinateurs connectés sont à la fois clients et serveurs.</p>
+  <br>
+  <p class="highlight">Exemple :</p>
+  <p>Tu veux envoyer une vidéo à ton ami. En P2P, ton ordinateur parle directement au sien, sans passer par un service intermédiaire comme Google Drive ou Dropbox.</p>
+  <br>
+  <p class="highlight">Avantages :</p>
+  <ul>
+    <li>Plus rapide quand plusieurs personnes partagent le fichier en même temps</li>
+    <li>Plus résistant (pas dépendant d’un serveur unique)</li>
+    <li>Pas de limite imposée par une plateforme</li>
+  </ul>
+
+  <h2>WebTorrent, c’est quoi ?</h2>
+  <p>WebTorrent est une technologie qui permet d’utiliser le P2P directement dans un navigateur web, sans installer de logiciel.</p>
+  <br>
+  <p class="highlight"  >Il repose sur deux piliers :</p>
+  <ul>
+    <li>Le protocole BitTorrent, très connu pour le partage de fichiers</li>
+    <li>Le WebRTC, qui permet aux navigateurs de communiquer entre eux en temps réel</li>
+  </ul>
+</div>
+
+<!--Sécurité-->
+<div class="security infos">
+  <div class="header">
+    <h1>Sécurité & Vie privée</h1>
+  </div>
+
+  <p>Pour ce projet, la sécurité et la confidentialité de vos fichiers sont notre priorité absolue.</p>
+
+  <h2>Pas de stockage, pas de trace</h2>
+  <p>Contrairement aux services classiques, nous ne stockons aucun fichier sur un serveur. Les fichiers sont échangés directement entre utilisateurs, grâce à la technologie peer-to-peer (P2P) via WebTorrent</p>
+  <br>
+  <p class="highlight">Cela signifie :</p>
+  <ul>
+    <li>Aucun fichier n’est sauvegardé sur notre  serveur</li>
+    <li>Nous n’avons aucun accès à vos fichiers</li>
+    <li>Les échanges sont éphémères : une fois le partage terminé, rien n’est conservé</li>
+  </ul>
+
+  <h2>Chiffrement & sécurité du navigateur</h2>
+  <p>Les connexions entre navigateurs sont établies via WebRTC, un protocole sécurisé qui chiffre les échanges de données.</p>
+  <br>
+  <p class="highlight">De plus :</p>
+  <ul>
+    <li>Les transferts se font navigateur à navigateur, sans passer par un intermédiaire</li>
+    <li>Aucune information personnelle n’est demandée pour utiliser notre service</li>
+    <li>Le site fonctionne sans inscription, sans cookies de tracking, et sans publicité</li>
+  </ul>
+
+  <h2>Respect total de votre vie privée</h2>
+  <p>Nous croyons en un Internet plus libre, plus respectueux de ses utilisateurs.</p>
+  <br>
+  <p class="highlight">C’est pourquoi :</p>
+  <ul>
+    <li>Nous ne collectons aucune donnée personnelle</li>
+    <li>Nous ne suivons aucune activité</li>
+    <li>Vous gardez le contrôle total sur ce que vous partagez, avec qui, et quand</li>
+  </ul>
+  <p class="highlight" style="margin-top: 40px">Vous avez une question ou une suggestion sur la sécurité ?</p>
+  <p class="highlight"> Contactez-nous à <a href="vrocher1@etu.uqac.ca" class="mail">vrocher1@etu.uqac.ca</a> </p>
+</div>
+
+
+<!--Sécurité-->
+<div class="cadre infos">
+  <div class="header">
+    <h1>Cadre du projet</h1>
+  </div>
+
+  <h2>Projet universitaire</h2>
+  <p>Ce site a été réalisé dans le cadre de notre formation à l'UQAC (Université du Québec à Chicoutimi),  dans le cadre du cours 8INF876 – Conception et architecture des systèmes d’infonuagique, durant la session Hiver 2025.t</p>
+  <div class="logo-uqac">
+    <img src="images/logo-uqac.svg" alt="logo UQAC">
+  </div>
+  <h2>Équipe du projet</h2>
+  <div class="team">
+    <div class="team-member">
+      <img src="images/vincent-rocher.jpg" alt="Vincent">
+      <p>Vincent Rocher</p>
+      <a href="vrocher1@etu.uqac.ca" class="mail">vrocher1@etu.uqac.ca</a>
+    </div>
+    <div class="team-member">
+      <img src="images/ryan-collobert.jpg" alt="Vincent">
+      <p>Ryan Collobert</p>
+      <a href="vrocher1@etu.uqac.ca" class="mail">rcollobert@etu.uqac.ca</a>
+    </div>
+    <div class="team-member">
+      <img src="images/elouan-pennec.jpg" alt="Vincent">
+      <p>Elouan Pennec</p>
+      <a href="vrocher1@etu.uqac.ca" class="mail">epennec@etu.uqac.ca</a>
+    </div>
+  </div> 
+
+</div>
+
+</body>
+</html>
