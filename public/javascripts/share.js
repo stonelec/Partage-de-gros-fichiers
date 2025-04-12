@@ -1,7 +1,44 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const url = "https://hey.ca";
+document.getElementById('upload').style.display = 'flex';
 
+// Function to handle file upload
+document.getElementById('file-input').addEventListener('change', function () {
+    const input = document.getElementById('file-input');
+    console.log(input);
+    document.getElementById('share').style.display = 'flex';
+    document.getElementById('upload').style.display = 'none';
+    uploadFile(input);
+
+});
+// Function to handle closing file upload
+document.getElementById('close').addEventListener('click', function () {
+    document.getElementById('share').style.display = 'none';
+    document.getElementById('upload').style.display = 'flex';
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    //const url = "https://hey.ca";
+
+
+    const dropArea = document.getElementById('drop-area');
+    const fileInput = document.getElementById('file-input');
+
+    dropArea.addEventListener('click', () => {
+        fileInput.click(); // simule un clic sur le vrai input file
+    });
+
+    /*fileInput.addEventListener('change', () => {
+        const files = fileInput.files;
+        //console.log("Fichiers sélectionnés :", files);
+    });*/
+
+});
+
+
+function setupURL(url){
     const card = document.querySelector(".qrcode");
+    //vider le contenu de la carte
+    card.innerHTML = "";
     const qrContainer = document.createElement("div");
     card.appendChild(qrContainer);
 
@@ -15,21 +52,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     image.setAttribute("draggable", "false");
 
-
-    // Met à jour le lien de téléchargement
     const downloadLink = document.querySelector(".download-link");
     if (downloadLink) {
         downloadLink.href = url;
-        downloadLink.textContent = url;
+        downloadLink.textContent = "Télécharger le fichier";
     }
 
     //copy url
     document.getElementById('copy').onclick = function () {
         const icon = document.getElementById('copy'); // récupération de l'élément
-        const message = "Voici le lien de téléchargement du fichier via l'application Partage de Gros Fichier qui permet un partage Gratuit et sans aucunes limitations :\nhttps://hey.ca";
 
         icon.setAttribute('icon', 'fluent:document-copy-24-filled'); // modification de l'icône
-        navigator.clipboard.writeText(message); // copie dans le presse-papiers
+        navigator.clipboard.writeText(url); // copie dans le presse-papiers
     };
 
 
@@ -67,13 +101,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById('gmail').onclick = function () {
         const subject = "Téléchargement du fichier via Partage de Gros Fichier";
-        const body = "Voici le lien de téléchargement du fichier via l'application Partage de Gros Fichier qui permet un partage Gratuit et sans aucunes limitations :\n\nhttps://hey.ca";
+        const body = "Voici le lien de téléchargement du fichier via l'application Partage de Gros Fichier qui permet un partage Gratuit et sans aucunes limitations :\n" + url;;
         const mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         window.location.href = mailtoLink;
     };
 
     document.getElementById('discord').onclick = function () {
-        const message = "Voici le lien de téléchargement du fichier via l'application Partage de Gros Fichier qui permet un partage Gratuit et sans aucunes limitations :\nhttps://hey.ca";
+        const message = "Voici le lien de téléchargement du fichier via l'application Partage de Gros Fichier qui permet un partage Gratuit et sans aucunes limitations :\n" + url;;
 
         const discordUrl = `https://discordapp.com/channels/@me/123456789012345678?message=${encodeURIComponent(message)}`;
         alert("Le message à été copié dans le presse-papier");
@@ -81,17 +115,4 @@ document.addEventListener("DOMContentLoaded", () => {
         window.open(discordUrl, "_blank");
     };
 
-
-    const dropArea = document.getElementById('drop-area');
-    const fileInput = document.getElementById('file-input');
-
-    dropArea.addEventListener('click', () => {
-        fileInput.click(); // simule un clic sur le vrai input file
-    });
-
-    fileInput.addEventListener('change', () => {
-        const files = fileInput.files;
-        //console.log("Fichiers sélectionnés :", files);
-    });
-
-});
+}

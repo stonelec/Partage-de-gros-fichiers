@@ -1,62 +1,100 @@
-// Fonction pour uploader un fichier
-async function uploadFile(event) {
-    event.preventDefault(); // Empêche le rechargement de la page
-
-    const fileInput = document.getElementById("file-input");
-    if (fileInput.files.length === 0) {
-        alert("Veuillez sélectionner un fichier.");
+function uploadFile(input) {
+    const client = new WebTorrent(); // Instantiate WebTorrent client
+    const files = input.files;
+    if (files.length === 0) {
+        alert("Please select a file!");
         return;
     }
 
-    const formData = new FormData();
-    formData.append("file", fileInput.files[0]);
+    // Calculate total size
+    let totalSize = 0;
+    for (let i = 0; i < files.length; i++) {
+        totalSize += files[i].size; // Add each file size
+    }
+    const totalSizeMB = (totalSize / (1024 * 1024)).toFixed(2); // Convert to MB
+    document.getElementById("totalSize").textContent = totalSizeMB; // Display total size
 
-    try {
-        const response = await fetch("/file/upload", {
-            method: "POST",
-            body: formData
+    // Display selected files information
+    const fileList = document.getElementById("fileList");
+    fileList.innerHTML = ""; // Clear previous file list
+    for (let i = 0; i < files.length; i++) {
+        const listItem = document.createElement("li");
+        listItem.textContent = files[i].name; // Display the file name
+        fileList.appendChild(listItem);
+    }
+    document.getElementById("fileInfo").style.display = "block"; // Show file info
+
+    // Hide the file select area and share button
+    document.getElementById("file-select-area").style.display = "none"; // Hide file input and button
+
+    // Show "Processing..." message
+    document.getElementById("processingMessage").style.display = "block";
+    document.getElementById("shareInfo").style.display = "none";
+
+    // Seed the file(s) using WebTorrent
+    let torrent = client.seed(files, (t) => {
+        const magnetURI = t.magnetURI;
+        const uniqueURL = `https://localhost:3000/receiver?magnet=${encodeURIComponent(
+            magnetURI
+        )}`;
+
+        // Hide "Processing..." message
+        document.getElementById("processingMessage").style.display = "none";
+
+        // Show the URL and other sharing info
+        document.getElementById("shareURL").value = uniqueURL;
+        document.getElementById("shareInfo").style.display = "block";
+
+        // Copy URL to clipboard
+        document.getElementById("copyURLBtn").addEventListener("click", () => {
+            navigator.clipboard.writeText(uniqueURL);
+            const copyButton = document.getElementById("copyURLBtn");
+            copyButton.textContent = "Copied"; // Change button text to 'Copied'
+            setTimeout(() => {
+                copyButton.textContent = "Copy URL"; // Reset button text after 2 seconds
+            }, 2000); // Reset the text back after 2 seconds
         });
 
-        const data = await response.json();
-        alert("Upload réussi : " + data.filename);
-    } catch (error) {
-        console.error("Erreur lors de l'upload :", error);
-    }
+        // Update upload stats
+        t.on("upload", (bytes) => {
+            const percentUploaded = (t.uploaded / t.length) * 100;
+            const clampedPercent = Math.min(percentUploaded, 100); // Ensure it does not exceed 100%
+            document.getElementById("uploadProgress").value = clampedPercent;
+            document.getElementById(
+                "uploadPercentage"
+            ).textContent = `${Math.round(clampedPercent)}%`; // Update percentage
+            document.getElementById(
+                "uploadSpeed"
+            ).textContent = `Upload speed: ${(t.uploadSpeed / 1024).toFixed(
+                2
+            )} KB/s`;
+            document.getElementById(
+                "peerCount"
+            ).textContent = `Peers: ${t.numPeers}`;
+        });
+
+        t.on("done", () => {
+            document.getElementById("transferComplete").style.display = "block";
+            client.remove(torrent);
+        });
+    });
+
+    // Start the heartbeat mechanism every 5 seconds
+    const heartbeatInterval = setInterval(() => {
+        console.log("Keeping the connection alive...");
+    }, 5000); // Every 5 seconds
+
+    // Start checking connection every 10 seconds
+    const connectionCheckInterval = setInterval(() => {
+        if (torrent.numPeers === 0) {
+            console.log("No connected peers. Attempting to reconnect...");
+            // Do not re-seed; instead, just log and check the connection status
+        }
+    }, 10000); // 10 seconds
+
+    // Clean up on window unload
+    window.addEventListener("beforeunload", () => {
+        clearInterval(heartbeatInterval);
+        clearInterval(connectionCheckInterval);
+    });
 }
-
-// Fonction pour télécharger un fichier
-async function downloadFile() {
-    try {
-        const response = await fetch("/file/download");
-        if (!response.ok) throw new Error("Erreur lors du téléchargement");
-
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "fichier_p2p"; // Nom du fichier téléchargé
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-    } catch (error) {
-        console.error("Erreur de téléchargement :", error);
-    }
-}
-document.getElementById('upload').style.display = 'flex';
-
-document.getElementById('file-input').addEventListener('change', function () {
-    console.log(document.getElementById('file-input').value);
-    document.getElementById('share').style.display = 'flex';
-    document.getElementById('upload').style.display = 'none';
-    uploadFile();
-
-});
-
-document.getElementById('close').addEventListener('click', function () {
-    document.getElementById('share').style.display = 'none';
-    document.getElementById('upload').style.display = 'flex';
-
-
-
-});
