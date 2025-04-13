@@ -2,7 +2,14 @@ async function uploadFile(input) {
     const client = new WebTorrent({
         tracker: {
             rtcConfig: {
-                iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
+                iceServers: [
+                    { urls: 'stun:stun.l.google.com:19302' }, // STUN
+                    {
+                        urls: 'turn:relay1.openwebrtc.io:443',
+                        username: 'openwebrtc',
+                        credential: 'webrtc'
+                    } // TURN public
+                ]
             }
         }
     });
@@ -38,9 +45,11 @@ async function uploadFile(input) {
     // Seed le fichier zip avec WebTorrent
     let torrent = client.seed(zipFile, (t) => {
         const magnetURI = t.magnetURI;
-        const uniqueURL = `http://localhost:3000/download?magnet=${encodeURIComponent(
-            magnetURI
-        )}`;
+
+        // Construire dynamiquement l'URL
+        const baseURL = window.location.origin; // 'https://partage-de-gros-fichiers.onrender.com'
+        const uniqueURL = `${baseURL}/download?magnet=${encodeURIComponent(magnetURI)}`;
+
         console.log("uniqueURL : ", uniqueURL);
 
 
