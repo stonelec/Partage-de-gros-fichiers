@@ -13,6 +13,20 @@ function uploadFile(input) {
         alert("Please select a file!");
         return;
     }
+    const zip = new JSZip();
+
+    // Ajoute chaque fichier dans le ZIP
+    for (let file of files) {
+        const arrayBuffer = await file.arrayBuffer();
+        zip.file(file.name, arrayBuffer);
+    }
+    // Génére le ZIP final (en Blob)
+    const zipBlob = await zip.generateAsync({ type: "blob" });
+    // Crée un fichier zip simulé pour le partager
+    const zipFile = new File([zipBlob], "partage_fichiers.zip", {
+        type: "application/zip",
+    });
+
 
     // Calculate total size
     let totalSize = 0;
@@ -56,6 +70,7 @@ function uploadFile(input) {
         // Show the URL and other sharing info
         console.log("uniqueURL : ",uniqueURL)
         //RC : trop long
+        /*
         //document.getElementById("shareURL").textContent = uniqueURL; // texte cliquable visible
         document.getElementById("download-link").textContent = "https://localhost:3000/receiver?magnet=..."
         document.getElementById("download-link").href = uniqueURL;         // destination du lien
@@ -71,7 +86,8 @@ function uploadFile(input) {
                 copyButton.textContent = "Copy URL"; // Reset button text after 2 seconds
             }, 2000); // Reset the text back after 2 seconds
         });
-
+        */
+        setupURL(uniqueURL); // Call the function to set up the QR code and download link
         // Update upload stats
         t.on("upload", (bytes) => {
             const percentUploaded = (t.uploaded / t.length) * 100;

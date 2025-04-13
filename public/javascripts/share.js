@@ -17,9 +17,6 @@ document.getElementById('close').addEventListener('click', function () {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    //const url = "https://hey.ca";
-
-
     const dropArea = document.getElementById('drop-area');
     const fileInput = document.getElementById('file-input');
 
