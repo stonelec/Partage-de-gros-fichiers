@@ -36,6 +36,7 @@ body {
     flex-direction: column; /* Disposition en colonne */
     background-color: var(--grey-color);
     margin: 0;
+    overflow-x: hidden;
 }
 
 header {
