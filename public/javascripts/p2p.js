@@ -1,5 +1,6 @@
 async function uploadFile(input) {
     const client = new WebTorrent({
+        //NE FONTIONNE PAS EN LOCALHOST AVEC FIREFOX
         tracker: {
             rtcConfig: {
                 iceServers: [
@@ -36,7 +37,7 @@ async function uploadFile(input) {
     document.getElementById("totalSize").textContent = (totalSize / 1024 / 1024).toFixed(2);
 
     //Nom fichier
-    const fileName = "Partage-de-gros-fichers-" + Date.now() + ".zip";
+    const fileName = "P2GF-" + Date.now() + ".zip";
     fileList.appendChild(document.createTextNode(fileName));
     // Générer le fichier ZIP
     const blob = await zip.generateAsync({ type: "blob" });
@@ -108,7 +109,8 @@ function downloadFile() {
         console.log("Téléchargement démarré pour :", torrent.name);
 
         torrent.files.forEach(file => {
-            // Créer un lien de téléchargement
+
+
             file.getBlobURL((err, url) => {
                 if (err) return console.error("Erreur de récupération :", err);
 
@@ -146,3 +148,37 @@ function downloadFile() {
     });
 }
 
+function getTorrentInfoOnly() {
+    const client = new WebTorrent();
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const magnetURI = urlParams.get('magnet');
+
+    if (!magnetURI) {
+        alert("Aucun lien magnet trouvé !");
+        return;
+    }
+
+    console.log("magnetURI :", magnetURI);
+
+    // Ajouter le torrent juste pour obtenir les métadonnées
+    client.add(magnetURI, { download: false }, function (torrent) {
+        // Dès que les métadonnées sont disponibles
+        console.log("Métadonnées reçues pour :", torrent.name);
+
+        const totalSize = (torrent.length / 1024 / 1024).toFixed(2); // en Mo
+        document.getElementById("filename").innerHTML = `Nom : ${torrent.name}`;
+        document.getElementById("fileSize").innerHTML = `Taille : ${totalSize} Mo`;
+
+        // Arrêter le client pour éviter tout téléchargement
+        client.remove(torrent.infoHash);
+        client.destroy(err => {
+            if (err) console.error("Erreur à la fermeture du client :", err);
+            else console.log("Client WebTorrent arrêté après récupération des métadonnées.");
+        });
+    });
+
+    client.on('error', err => {
+        console.error("Erreur WebTorrent :", err);
+    });
+}

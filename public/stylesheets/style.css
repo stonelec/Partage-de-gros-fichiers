@@ -38,7 +38,9 @@ body {
     margin: 0;
     overflow-x: hidden;
 }
-
+.logo{
+    cursor: pointer;
+}
 header {
     display: flex;
     justify-content: center; /* Centre le contenu horizontalement */

@@ -54,4 +54,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Afficher par défaut la section "Informations" au chargement de la page
     afficherSection('informations');
+
+    // Gérer le clic sur le bouton logo
+    const logoButton = document.querySelector('.logo');
+    logoButton.addEventListener('click', function() {
+        window.location.href = '/';
+    });
+
 });
+

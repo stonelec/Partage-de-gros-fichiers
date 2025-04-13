@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    getTorrentInfoOnly();
     const downloadButton = document.querySelector(".card button.active");
 
     if (downloadButton) {
