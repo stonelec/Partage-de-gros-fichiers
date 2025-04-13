@@ -95,9 +95,10 @@ button:active {
 }
 
 .download-section .progress-bar {
-    width: 40%;
+    width: 0%;
     height: 100%;
     background-color: var(--blue-color);
+    transition: width 0.3s ease;
 }
 
 .download-section .progress-text {

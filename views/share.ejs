@@ -67,8 +67,16 @@
         </div>
         <!--share-->
         <div class="container share" id="share" style="display: none;">
-            <div class="card qrcode" id="qrcode">
-                <!--emplacement qrcode-->
+            <div>
+                <div class="card qrcode" id="qrcode">
+                    <!--emplacement qrcode-->
+                </div>
+                <br>
+                <div id="fileInfo">
+                    <h3>Fichier</h3>
+                    <p>Taille totale: <span id="totalSize"></span> MB</p>
+                    <div id="fileList"></div>
+                </div>
             </div>
             <div class="download-section">
                 <div class="download-header">
@@ -77,7 +85,7 @@
                         <iconify-icon icon="fluent:dismiss-24-filled" width="35" height="35" id="close"></iconify-icon>
                     </div>
                     <div class="download-options">
-                        <a href="#" class="download-link"></a>
+                        <a href="#" class="download-link" id="download-link"></a>
                         <iconify-icon icon="fluent:copy-24-filled" id="copy" class="copy" width="30" height="30"></iconify-icon>
                     </div>
                     <div class="app">
@@ -90,10 +98,10 @@
                     </div>
                 </div>
                 <div id="download-content">
-                    <p class="title">Envoie</p>
+                    <p><span class="title">Envoie</span><span class="uploadPercentage"></span><span class="uploadSpeed"></span><span class="peerCount"></span></p>
                     <div class="progress">
                         <div class="progress-bar"></div>
-                        <span class="progress-text">40%</span>
+                        <span class="progress-text">0%</span>
                     </div>
                     <p class="warning">
                         <iconify-icon icon="fluent:warning-24-filled" width="30" height="30"></iconify-icon>
