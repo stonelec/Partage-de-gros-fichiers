@@ -101,13 +101,6 @@ button:active {
     transition: width 0.3s ease;
 }
 
-.download-section .progress-text {
-    position: absolute;
-    right: -40px;
-    top: -5px;
-    color: white;
-}
-
 .download-section .warning {
     margin-top: 15px;
     color: white;

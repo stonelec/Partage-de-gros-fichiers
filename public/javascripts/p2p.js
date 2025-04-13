@@ -60,10 +60,9 @@ async function uploadFile(input) {
             const percentUploaded = (t.uploaded / t.length) * 100;
             const clampedPercent = Math.min(percentUploaded, 100);
             document.querySelector(".download-section .progress-bar").style.width = clampedPercent + "%";
-            document.querySelector(".download-section .progress-text").textContent = `${Math.round(clampedPercent)}%`;
 
-            document.getElementById("uploadPercentage").textContent = `${Math.round(clampedPercent)}%`;
-            document.getElementById("uploadSpeed").textContent = `Upload speed: ${(t.uploadSpeed / 1024).toFixed(2)} KB/s`;
+            document.getElementById("uploadPercentage").textContent = ` - ${Math.round(clampedPercent)}%`;
+            document.getElementById("uploadSpeed").textContent = ` - Upload speed: ${(t.uploadSpeed / 1024).toFixed(2)} KB/s - `;
             document.getElementById("peerCount").textContent = `Peers: ${t.numPeers}`;
         });
 
@@ -134,7 +133,9 @@ function downloadFile() {
             const clampedPercent = Math.min(percent, 100);
 
             document.querySelector(".progress-bar").style.width = clampedPercent + "%";
-            document.querySelector(".progress-text").textContent = `${Math.round(clampedPercent)}%`;
+
+            document.getElementById("downloadPercentage").textContent = ` - ${Math.round(clampedPercent)}% - `;
+            document.getElementById("downloadSpeed").textContent = `Download speed: ${(torrent.downloadSpeed / 1024).toFixed(2)} KB/s`;
         });
 
         torrent.on('done', () => {
