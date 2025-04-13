@@ -8,4 +8,7 @@ router.get("/share", function (req, res, next) {
 router.get("/download", function (req, res, next) {
     res.render("download", { title: "download" });
 });
+router.get("/test", function (req, res, next) {
+    res.render("test", { title: "test" });
+});
 module.exports = router;
