@@ -19,8 +19,8 @@
     <div class="container">
         <div class="card">
             <h2>Fichier</h2>
-            <p class="filename">how-to-sidddddddddddddddze-a-.webp</p>
-            <p class="filesize">0.10mb</p>
+            <p class="filename" id="filename">d</p>
+            <p class="filesize" id="filesize">d</p>
             <button class="active">Téléchargement</button>
         </div>
         <div class="download-section">
@@ -31,13 +31,13 @@
                 <ul id="fileList"></ul>
             </div>
             <div id="download-content">
-                <p class="title"><span>Téléchargement</span></p>
+                <p><span class="title">Envoi</span><span id="uploadPercentage"></span><span id="uploadSpeed"></span><span id="peerCount"></span></p>
                 <div class="progress">
                     <div class="progress-bar"></div>
-                    <span class="progress-text">40%</span>
+                    <span class="progress-text">0%</span>
                 </div>
                 <p class="warning">
-                    ⚠️
+                    <iconify-icon icon="fluent:warning-24-filled" width="30" height="30"></iconify-icon>
                     <span>Fermer cette page annule le téléchargement</span>
                 </p>
             </div>

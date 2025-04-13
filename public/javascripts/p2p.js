@@ -118,7 +118,10 @@ function downloadFile() {
                 a.textContent = `Télécharger ${file.name}`;
                 a.className = "download-link";
 
-                document.getElementById("fileList").appendChild(a);
+                document.getElementById("filename").innerHTML = `Nom :`;
+                // Afficher la taille du fichier dans un p
+                const fileSize = (file.length / 1024 / 1024).toFixed(2);
+                document.getElementById("fileSize").innerHTML = `Taille : Mo`;
             });
         });
 
