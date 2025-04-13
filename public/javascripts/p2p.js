@@ -38,8 +38,11 @@ async function uploadFile(input) {
     // Seed le fichier zip avec WebTorrent
     let torrent = client.seed(zipFile, (t) => {
         const magnetURI = t.magnetURI;
-        const uniqueURL = `https://localhost:3000/receiver?magnet=${encodeURIComponent(magnetURI)}`;
+        const uniqueURL = `http://localhost:3000/download?magnet=${encodeURIComponent(
+            magnetURI
+        )}`;
         console.log("uniqueURL : ", uniqueURL);
+
 
         setupURL(uniqueURL);
 
@@ -75,3 +78,55 @@ async function uploadFile(input) {
         clearInterval(connectionCheckInterval);
     });
 }
+
+
+function downloadFile() {
+    const client = new WebTorrent();
+
+    // Récupérer l'URL complète et extraire le lien magnet
+    const urlParams = new URLSearchParams(window.location.search);
+    const magnetURI = urlParams.get('magnet');
+
+    if (!magnetURI) {
+        alert("Aucun lien magnet trouvé !");
+        return;
+    }
+    console.log("magnetURI : ",magnetURI);
+
+    // Télécharger le fichier via WebTorrent
+    client.add(magnetURI, function (torrent) {
+        console.log("Test")
+        console.log("Téléchargement démarré pour :", torrent.name);
+
+        torrent.files.forEach(file => {
+            // Créer un lien de téléchargement
+            file.getBlobURL((err, url) => {
+                if (err) return console.error("Erreur de récupération :", err);
+
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = file.name;
+                a.textContent = `Télécharger ${file.name}`;
+                a.className = "download-link";
+
+                document.getElementById("fileList").appendChild(a);
+            });
+        });
+
+        // Mettre à jour la barre de progression
+        torrent.on('download', () => {
+            const percent = (torrent.downloaded / torrent.length) * 100;
+            const clampedPercent = Math.min(percent, 100);
+
+            document.querySelector(".progress-bar").style.width = clampedPercent + "%";
+            document.querySelector(".progress-text").textContent = `${Math.round(clampedPercent)}%`;
+        });
+
+        torrent.on('done', () => {
+            console.log('Téléchargement terminé');
+        });
+    }).on('error', err => {
+        console.error("Erreur WebTorrent :", err);
+    });
+}
+

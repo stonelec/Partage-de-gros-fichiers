@@ -6,6 +6,9 @@
     <link rel='stylesheet' href='/stylesheets/style_download.css' />
     <link rel='stylesheet' href='/stylesheets/style_share.css' />
     <script type='text/javascript' src='/javascripts/general.js'></script>
+    <script type='text/javascript' src='/javascripts/p2p.js' defer></script>
+    <script type='text/javascript' src='/javascripts/download.js' defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/webtorrent/webtorrent.min.js"></script>
 </head>
 <body>
 <header>
@@ -25,6 +28,7 @@
                 <p class="title">
                     Vous pouvez maintenant <br /><strong>télécharger le fichier</strong>
                 </p>
+                <ul id="fileList"></ul>
             </div>
             <div id="download-content">
                 <p class="title"><span>Téléchargement</span></p>
