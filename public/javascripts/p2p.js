@@ -123,6 +123,8 @@ function downloadFile() {
                 // Afficher la taille du fichier dans un p
                 const fileSize = (file.length / 1024 / 1024).toFixed(2);
                 document.getElementById("fileSize").innerHTML = `Taille : ${fileSize} Mo`;
+
+                document.getElementById("fileList").appendChild(a);
             });
         });
 
