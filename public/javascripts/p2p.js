@@ -41,13 +41,14 @@ async function uploadFile(input) {
     // Générer le fichier ZIP
     const blob = await zip.generateAsync({ type: "blob" });
     const zipFile = new File([blob], fileName, { type: "application/zip" });
+    const baseURL = window.location.origin; // 'https://partage-de-gros-fichiers.onrender.com'
 
     // Seed le fichier zip avec WebTorrent
     let torrent = client.seed(zipFile, (t) => {
         const magnetURI = t.magnetURI;
 
         // Construire dynamiquement l'URL
-        const baseURL = window.location.origin; // 'https://partage-de-gros-fichiers.onrender.com'
+
         const uniqueURL = `${baseURL}/download?magnet=${encodeURIComponent(magnetURI)}`;
 
         console.log("uniqueURL : ", uniqueURL);
@@ -118,10 +119,10 @@ function downloadFile() {
                 a.textContent = `Télécharger ${file.name}`;
                 a.className = "download-link";
 
-                document.getElementById("filename").innerHTML = `Nom :`;
+                document.getElementById("filename").innerHTML = `Nom : ${file.name}`;
                 // Afficher la taille du fichier dans un p
                 const fileSize = (file.length / 1024 / 1024).toFixed(2);
-                document.getElementById("fileSize").innerHTML = `Taille : Mo`;
+                document.getElementById("fileSize").innerHTML = `Taille : ${fileSize} Mo`;
             });
         });
 
