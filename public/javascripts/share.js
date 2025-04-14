@@ -32,6 +32,7 @@ function setupURL(url){
     //vider le contenu de la carte
     card.innerHTML = "";
     const qrContainer = document.createElement("div");
+    qrContainer.id = "qrcodeIMG";
     card.appendChild(qrContainer);
 
     new QRCode(qrContainer, {
