@@ -134,6 +134,10 @@ button:active {
     right: 2px;
     height: 100%;
 }
+
+#fileList{
+    margin: 27.5px 0;
+}
 @media (max-width: 800px) {
 
     .card {
