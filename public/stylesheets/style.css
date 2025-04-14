@@ -33,6 +33,7 @@ html {
     overflow-x: hidden;
 }
 body {
+
     display: flex;
     flex-direction: column; /* Disposition en colonne */
     background-color: var(--grey-color);
@@ -92,6 +93,7 @@ header img{
 
 main {
     background-color: var(--grey-color);
+    height: 100%;
 }
 
 .info {
@@ -188,5 +190,27 @@ footer {
     border-radius: 50%;
     object-fit: cover;
 }
-@media (max-width: 800px) {
+/* Firefox */
+* {
+    scrollbar-width: auto;              /* "auto" | "thin" | "none" */
+    scrollbar-color: var(--blue-color) white; /* thumb color | track color */
+}
+
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--blue-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--black-color);
 }
