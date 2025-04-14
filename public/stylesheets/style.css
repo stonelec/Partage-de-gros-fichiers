@@ -164,6 +164,9 @@ footer {
     justify-content: center;
     width: 100%;
 }
+.infos .img-infos img{
+    max-width: 75%;
+}
 .infos .mail{
     color: var(--blue-color);
     margin-top: 10px;
@@ -183,8 +186,7 @@ footer {
     object-fit: cover;
 }
 @media (max-width: 800px) {
-    main{
-        background-color: red;
+    .infos .img-infos img{
+        max-width: 60%;
     }
-
 }
