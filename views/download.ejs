@@ -3,8 +3,8 @@
 <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel='stylesheet' href='/stylesheets/style_download.css' />
     <link rel='stylesheet' href='/stylesheets/style_share.css' />
+    <link rel='stylesheet' href='/stylesheets/style_download.css' />
     <script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
     <script type='text/javascript' src='/javascripts/general.js'></script>
     <script type='text/javascript' src='/javascripts/p2p.js' defer></script>
@@ -26,9 +26,10 @@
         </div>
         <div class="download-section">
             <div class="download-header">
-                <p class="title">
-                    Vous pouvez maintenant <br /><strong>télécharger le fichier</strong>
-                </p>
+                <div class="top-upload">
+                    <p class="title">Vous pouvez maintenant <br /><strong>télécharger le fichier</strong></p>
+                    <iconify-icon icon="fluent:dismiss-24-filled" width="35" height="35" id="close"></iconify-icon>
+                </div>
                 <ul id="fileList"></ul>
             </div>
             <div id="download-content">

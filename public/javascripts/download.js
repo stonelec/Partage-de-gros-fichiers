@@ -11,3 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+// Function to handle closing file upload
+document.getElementById('close').addEventListener('click', function () {
+    window.location.href = '/';
+});
