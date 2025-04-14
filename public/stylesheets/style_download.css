@@ -14,7 +14,7 @@ body {
     position: relative;
     top: 50px;
     overflow-x: hidden;
-    padding: 0 12.5%;
+    padding: 0 5%;
     /* height claul 100% + 1px to avoid the scroll bar */
     height: calc(100% + 1px);
 }
@@ -127,7 +127,7 @@ button:active {
 }
 .buttons-container {
     position: relative;
-    top: 60px;
+    top: 45px;
     z-index: 2;
     display: flex;
     justify-content: center;

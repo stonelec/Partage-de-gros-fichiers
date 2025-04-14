@@ -67,7 +67,6 @@ header img{
     clip-path: inset(0px -10px -10px -10px);
     z-index: 1;
     top: -1px ;
-
 }
 
 .elipse-top{
@@ -83,6 +82,7 @@ header img{
     z-index: 1;
     top: -1px;
 
+
 }
 .elipse-top-fond{
     background-color: white;
@@ -97,7 +97,7 @@ main {
 }
 
 .info {
-    padding: 35px 15% 0 15%;
+    padding: 35px 5% 0 5%;
 
     background-color: white;
 }
@@ -106,7 +106,7 @@ footer {
     background-color: var(--grey-color);
     color: white;
     text-align: center;
-    padding: 25px 10%;
+    padding: 25px 5%;
     align-content: center;
 }
 
@@ -229,6 +229,7 @@ footer {
         flex-direction: column;
         gap: 20px;
         align-items: center;
+        top: 40px;
     }
     .card {
         height: 200px;
@@ -239,12 +240,21 @@ footer {
         height: 150px;
     }
     button {
-        padding: 5px 20px;
-        font-size: 20px;
+        padding: 5px 10px;
+        font-size: 17.5px;
         width: 150px;
     }
     .buttons-container{
-        top:50px
+        top:0px;
+        gap: 10px;
+        padding: 0 5%;
+    }
+    .infos .team{
+        flex-direction: column; 
+    }
+    .elipse-top{
+        top: -40px;
+        margin-bottom: -40px;
     }
 }
 
