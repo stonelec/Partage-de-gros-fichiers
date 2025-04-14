@@ -222,6 +222,10 @@ footer {
         width: 150px;
         padding-top: 20px;
     }
+    #qrcode img{
+        height: 100px;
+        width: 100px;
+    }
     .card {
         padding: 15px;
     }
