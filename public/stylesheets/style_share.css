@@ -101,21 +101,8 @@
     right: -12.5px;
     height: 100%;
 }
-@media (max-width: 800px) {
-    .card .card-point{
-        font-size: 0.5rem ;
-        height: 150px;
-        width: 150px;
-        padding-top: 20px;
-    }
-    .card {
-        padding: 15px;
-    }
-    .container{
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-    }
-
+#fileInfo{
+    margin-top: -20px;
 }
-
+main{
+}
