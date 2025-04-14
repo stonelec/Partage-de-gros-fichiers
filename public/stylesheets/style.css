@@ -222,8 +222,8 @@ footer {
         width: 150px;
         padding-top: 20px;
     }
-    #qrcode img{
-        max-width: 100%;
+    #qrcodeIMG  canvas{
+        width: 100%;
         padding: 5%;
     }
     .card {
