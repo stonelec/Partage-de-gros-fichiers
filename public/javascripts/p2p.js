@@ -2,16 +2,7 @@ async function uploadFile(input) {
     addEventListener("beforeunload", (event) => {
         event.preventDefault();
     });
-    const client = new WebTorrent({
-        //NE FONTIONNE PAS EN LOCALHOST AVEC FIREFOX
-        tracker: {
-            rtcConfig: {
-                iceServers: [
-                    { urls: 'stun:stun.l.google.com:19302' }, // STUN
-                ]
-            }
-        }
-    });
+    const client = new WebTorrent();
 
     const files = input.files;
     if (files.length === 0) {
