@@ -38,7 +38,7 @@ async function uploadFile(input) {
     document.querySelector(".download-section .progress-bar").style.width = 0 + "%";
 
     document.getElementById("uploadPercentage").textContent = ` - ${Math.round(0)}%`;
-    document.getElementById("uploadSpeed").textContent = ` - Upload speed: ${(0 / 1024).toFixed(2)} KB/s - `;
+    document.getElementById("uploadSpeed").textContent = ` - Upload speed: ${(0 / 1024 / 1024).toFixed(2)} Mb/s - `;
     document.getElementById("peerCount").textContent = `Peers: ${0}`;
 
     //Nom fichier
@@ -68,7 +68,7 @@ async function uploadFile(input) {
             document.querySelector(".download-section .progress-bar").style.width = clampedPercent + "%";
 
             document.getElementById("uploadPercentage").textContent = ` - ${Math.round(clampedPercent)}%`;
-            document.getElementById("uploadSpeed").textContent = ` - Upload speed: ${(t.uploadSpeed / 1024).toFixed(2)} KB/s - `;
+            document.getElementById("uploadSpeed").textContent = ` - Upload speed: ${(t.uploadSpeed / 1024 / 1024 ).toFixed(2)} Mb/s - `;
             document.getElementById("peerCount").textContent = `Peers: ${t.numPeers}`;
         });
 
