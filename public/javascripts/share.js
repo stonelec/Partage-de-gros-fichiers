@@ -24,11 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
         fileInput.click(); // simule un clic sur le vrai input file
     });
 
-    /*fileInput.addEventListener('change', () => {
-        const files = fileInput.files;
-        //console.log("Fichiers sélectionnés :", files);
-    });*/
-
 });
 
 

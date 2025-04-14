@@ -1,4 +1,7 @@
 async function uploadFile(input) {
+    addEventListener("beforeunload", (event) => {
+        event.preventDefault();
+    });
     const client = new WebTorrent({
         //NE FONTIONNE PAS EN LOCALHOST AVEC FIREFOX
         tracker: {
@@ -30,6 +33,13 @@ async function uploadFile(input) {
     }
 
     document.getElementById("totalSize").textContent = (totalSize / 1024 / 1024).toFixed(2);
+
+    //set to 0 bar
+    document.querySelector(".download-section .progress-bar").style.width = 0 + "%";
+
+    document.getElementById("uploadPercentage").textContent = ` - ${Math.round(0)}%`;
+    document.getElementById("uploadSpeed").textContent = ` - Upload speed: ${(0 / 1024).toFixed(2)} KB/s - `;
+    document.getElementById("peerCount").textContent = `Peers: ${0}`;
 
     //Nom fichier
     const fileName = "P2GF-" + Date.now() + ".zip";
@@ -86,6 +96,9 @@ async function uploadFile(input) {
 
 
 function downloadFile() {
+    addEventListener("beforeunload", (event) => {
+        event.preventDefault();
+    });
     const client = new WebTorrent();
 
     // Récupérer l'URL complète et extraire le lien magnet
