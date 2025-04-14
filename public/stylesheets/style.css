@@ -249,7 +249,7 @@ footer {
         width: 150px;
     }
     .buttons-container{
-        top:0px;
+        top: 10px;
         gap: 10px;
         padding: 0 5%;
     }
@@ -257,7 +257,7 @@ footer {
         flex-direction: column; 
     }
     .elipse-top{
-        top: -40px;
+        top: -10px;
         margin-bottom: -40px;
     }
 }
