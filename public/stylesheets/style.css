@@ -182,3 +182,9 @@ footer {
     border-radius: 50%;
     object-fit: cover;
 }
+@media (max-width: 800px) {
+    main{
+        background-color: red;
+    }
+
+}

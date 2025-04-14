@@ -13,6 +13,7 @@ body {
     font-size: 18px;
     position: relative;
     top: 50px;
+    overflow-x: hidden;
 }
 
 .card {
@@ -142,6 +143,9 @@ button:active {
         padding: 5px 20px;
         font-size: 20px;
         width: 150px;
+    }
+    container{
+        background-color: red;
     }
 
 }
